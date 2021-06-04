@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Intro component with sign up form</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div>
+    <main>
+      <div class="intro">
+        <h1>Learn to code by watching others</h1>
+        <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great,
+          but understanding how developers think is invaluable.</p>
+      </div>
+      <div class="signup">
+        <div class="trial">
+          <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
+        </div>
+        <form class="signup-form" action="index.html" method="POST" novalidate>
+          <div class="input-div fName-div">
+            <input type="text" name="fName" id="fName" aria-label="fName" placeholder="First Name">
+            <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
+            <p class="error-msg"><em>First Name cannot be empty</em></p>
+          </div>
+          <div class="input-div lName-div">
+            <input type="text" name="lName" id="lName" aria-label="lName" placeholder="Last Name">
+            <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
+            <p class="error-msg"><em>Last Name cannot be empty</em></p>
+          </div>
+          <div class="input-div email-div">
+            <input type="email" name="email" id="email" aria-label="email" placeholder="Email Address" value="">
+            <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
+            <p class="error-msg"><em>Looks like this is not an email</em></p>
+          </div>
+          <div class="input-div password-div">
+            <input type="password" name="password" id="password" aria-label="password" placeholder="Password">
+            <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
+            <p class="error-msg"><em>Password cannot be empty</em></p>
+          </div>
+          <button class="submit-btn" type="submit">Claim your free trial</button>
+          <p class="terms">By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></p>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <p class="attribution">
+        Coded by <a href="https://github.com/mathew12tan?tab=repositories">Mathew</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>
