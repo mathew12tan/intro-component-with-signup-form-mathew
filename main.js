@@ -1,72 +1,64 @@
 const form = document.querySelector(".signup-form");
+form.setAttribute("novalidate", "");
 
 const fName = document.querySelector("#fName");
 const lName = document.querySelector("#lName");
 const password = document.querySelector("#password");
 
-const emailDiv = document.querySelector(".email-div");
 const email = document.querySelector("#email");
 const emailErrorMsg = document.querySelector(".email-div .error-msg");
-emailErrorMsg.innerHTML = "<em>Email cannot be empty</em>";
 
-function validateInput(element) {
-  const input = document.getElementById(`${element}`);
-  const inputDiv = document.querySelector(`.${element}-div`);
+function addError(input) {
+  input.parentElement.classList.add("error");
+}
+
+function removeError(input) {
+  input.parentElement.classList.remove("error");
+}
+
+function resetInput(input) {
+  input.addEventListener("input", function () {
+    removeError(input);
+  });
+}
+
+function validateInput(input) {
+  resetInput(input);
   if (input.value === "") {
-    inputDiv.classList.add("error");
+    addError(input);
+    return false;
   } else {
-    inputDiv.classList.remove("error");
+    removeError(input);
+    return true;
   }
-  input.addEventListener("click", function () {
-    inputDiv.classList.remove("error");
-  });
-  input.addEventListener("keypress", function () {
-    inputDiv.classList.remove("error");
-  });
 }
 
 function validateEmail() {
-  if (email.value === "") {
-    emailErrorMsg.innerHTML = "<em>Email cannot be empty</em>";
-    emailDiv.classList.add("error");
-  } else if (!email.validity.valid) {
-    emailDiv.classList.add("error");
+  resetInput(email);
+  if (!email.validity.valid) {
+    addError(email);
     emailErrorMsg.innerHTML = "<em>Looks like this is not an email</em>";
-  } else {
-    emailDiv.classList.remove("error");
-  }
-  email.addEventListener("click", function () {
-    emailDiv.classList.remove("error");
-  });
-  email.addEventListener("keypress", function () {
-    emailDiv.classList.remove("error");
-  });
-}
-
-//clear input if all input is valid
-function clearInput() {
-  if (fName.value !== "") {
-    if (lName.value !== "") {
-      if (email.value !== "" && email.validity.valid) {
-        if (password.value !== "") {
-          fName.value = "";
-          lName.value = "";
-          email.value = "";
-          password.value = "";
-        }
-      }
+    if (email.value === "") {
+      addError(email);
+      emailErrorMsg.innerHTML = "<em>Email cannot be empty</em>";
     }
+    return false;
+  } else {
+    removeError(email);
+    return true;
   }
 }
 
 form.addEventListener("submit", function (e) {
-  validateInput("fName");
-  validateInput("lName");
-  validateEmail();
-  validateInput("password");
   e.preventDefault();
-  clearInput();
+  const isAllValid = [
+    validateInput(fName),
+    validateInput(lName),
+    validateEmail(),
+    validateInput(password),
+  ];
+  if (isAllValid.every(x=> x===true)) {
+    alert("You have successfully claim your free trial!");
+    window.location.replace("./index.html");
+  }
 });
-
-
-

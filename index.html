@@ -22,24 +22,24 @@
         <div class="trial">
           <p><span>Try it free 7 days</span> then $20/mo. thereafter</p>
         </div>
-        <form class="signup-form" action="index.html" method="POST" novalidate>
+        <form class="signup-form" action="./index.html" method="#">
           <div class="input-div fName-div">
-            <input type="text" name="fName" id="fName" aria-label="fName" placeholder="First Name">
+            <input type="text" name="Name" id="fName" aria-label="fName" placeholder="First Name" required>
             <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
             <p class="error-msg"><em>First Name cannot be empty</em></p>
           </div>
           <div class="input-div lName-div">
-            <input type="text" name="lName" id="lName" aria-label="lName" placeholder="Last Name">
+            <input type="text" name="lName" id="lName" aria-label="lName" placeholder="Last Name" required>
             <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
             <p class="error-msg"><em>Last Name cannot be empty</em></p>
           </div>
           <div class="input-div email-div">
-            <input type="email" name="email" id="email" aria-label="email" placeholder="Email Address" value="">
+            <input type="email" name="email" id="email" aria-label="email" placeholder="Email Address" value="" required>
             <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
             <p class="error-msg"><em>Looks like this is not an email</em></p>
           </div>
           <div class="input-div password-div">
-            <input type="password" name="password" id="password" aria-label="password" placeholder="Password">
+            <input type="password" name="password" id="password" aria-label="password" placeholder="Password" required>
             <img class="error-img" src="./images/icon-error.svg" alt="icon-error">
             <p class="error-msg"><em>Password cannot be empty</em></p>
           </div>

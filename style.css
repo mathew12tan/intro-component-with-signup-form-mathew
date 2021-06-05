@@ -176,10 +176,16 @@ input::placeholder {
 }
 
 .terms a {
+  display: inline-block;
   color: var(--Red);
   font-size: 1.1em;
   font-weight: 700;
-  text-decoration: none;
+  text-decoration: transparent;
+  transition: all 1s;
+}
+
+.terms a:hover {
+  text-decoration: underline;
 }
 
 /* attribution */
